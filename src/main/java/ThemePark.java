@@ -52,6 +52,25 @@ public class ThemePark {
         }
         return allRev;
     }
-    
+
+    // this worked by implementing ISecurity at parent level classes, not sure if that's the correct way to do so.
+    public ArrayList<IReviewed> getAllAllowedFor (Visitor visitor){
+        ArrayList<IReviewed> visitorList = new ArrayList<>();
+
+        for (Attraction attraction : attractions){
+            if (attraction.isAllowedTo(visitor)){
+                visitorList.add(attraction);
+            }
+        }
+
+        for (Stall stall : stalls){
+            if (stall.isAllowedTo(visitor)){
+                visitorList.add(stall);
+            }
+        }
+
+        return visitorList;
+        }
+
 
     }

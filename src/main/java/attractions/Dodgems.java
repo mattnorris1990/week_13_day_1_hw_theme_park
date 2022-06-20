@@ -1,9 +1,10 @@
 package attractions;
 
+import behaviours.ISecurity;
 import behaviours.ITicketed;
 import people.Visitor;
 
-public class Dodgems extends Attraction implements ITicketed {
+public class Dodgems extends Attraction implements ITicketed, ISecurity {
 
     public Dodgems(String name, int rating) {
         super(name, rating);
@@ -20,5 +21,10 @@ public class Dodgems extends Attraction implements ITicketed {
             return defaultPrice();
         }
         else return defaultPrice() / 2;
+    }
+
+    @Override
+    public boolean isAllowedTo(Visitor visitor) {
+        return true;
     }
 }

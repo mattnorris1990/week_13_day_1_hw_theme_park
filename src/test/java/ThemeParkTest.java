@@ -80,6 +80,9 @@ public class ThemeParkTest {
         assertEquals(7, themePark.allReviews().size());
     }
 
+    @Test
+    public void canGetListOfAllowedLocationsForVisitor(){
+        assertEquals(5, themePark.getAllAllowedFor(visitor1).size());
     }
 
 }
